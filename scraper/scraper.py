@@ -11,7 +11,7 @@ def get_url(search_term):
     return tempurl.format(search_term)
 
 url = get_url('dog food')
-# driver.get(url)
+driver.get(url)
 #Get the data
 soup = BeautifulSoup(driver.page_source, 'html.parser')
 results = soup.find_all('div', {'data-component-type': 's-search-result'})
