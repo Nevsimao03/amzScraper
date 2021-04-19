@@ -41,10 +41,6 @@ def extract_data(item):
 
     return result
 
-def random_interval():
-    time_in_seconds = random() * 3
-    sleep(time_in_seconds)
-
 def main(search_term):
     driver = webdriver.Chrome(executable_path="C:\Program Files (x86)\chromedriver.exe")
 
@@ -60,7 +56,7 @@ def main(search_term):
             record = extract_data(item)
             if record:
                 records.append(record)
-        random_interval()
+        time.sleep(3)
 
     driver.close()
 
