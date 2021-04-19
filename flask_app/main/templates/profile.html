@@ -1,7 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1 class="title">
-  Welcome, {{ name }}!
+<h1>
+  <center>Data</center>
 </h1>
+  <form class="search" method="post" action="">
+    <input type="text" placeholder="Search by name or price, or all to see all the data" name="price">
+    <button type="submit"><i class="fa fa-search"></i></button>
+  </form>
+  <p></p>
+  <center>
+  {% for item in data %}
+    <div>
+      <span> {{ result }}</span>
+    </div>
+  {% endfor %}
+  </center>
 {% endblock %}
