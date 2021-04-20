@@ -56,7 +56,7 @@ def main(search_term):
             record = extract_data(item)
             if record:
                 records.append(record)
-                # time.sleep(3)
+        time.sleep(5)
 
     driver.close()
 
@@ -65,4 +65,4 @@ def main(search_term):
         writer.writerow(['Description', 'Price', 'Rating', 'ReviewCount', 'Url'])
         writer.writerows(records)
 
-main('xbox games')
+main('dog food')
