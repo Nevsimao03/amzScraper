@@ -3,6 +3,7 @@ from . import db
 from flask_login import login_required, current_user
 import os
 import pandas as pd
+import plotly.express as px
 
 main = Blueprint('main', __name__)
 
@@ -20,15 +21,10 @@ main = Blueprint('main', __name__)
 #     return page
 
 @main.route("/data")
-def data():
-    def show_tables():
-        data = pd.read_csv('results.csv')
-        data.set_index(['Name'], inplace=True)
-        data.index.name=None
-        description = data.loc[data.Description]
-        price = data.loc[data.Price]
-        return render_template('dataset.html',tables=[description.to_html(classes='description'), price.to_html(classes='price')],
-        titles = ['na', 'Description', 'Price'])
+
+df = pd.read_csv('results.csv')
+df.head()
+return render_template('dataset.html')
 
 @main.route('/')
 def index():
